@@ -28,7 +28,7 @@ export default function InputField() {
     }
 
     if (isError) {
-      return <span>Error: {error.message}</span>;
+      return <span className="text-center">Error: {error.message}</span>;
     }
 
     if (val === "") {

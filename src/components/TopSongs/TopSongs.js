@@ -15,14 +15,14 @@ export default function TopSongs() {
   }
 
   if (isError) {
-    return <span>Error: {error.message}</span>;
+    return <span className="text-center">Error: {error.message}</span>;
   }
 
   return (
     <div>
       <div className="container m-auto mt-11">
         <div>
-          <h2 className="sm:text-base md:text-2xl lg:text-3xl font-bold text-center mb-4 text-indigo-500">
+          <h2 className="sm:text-xl md:text-3xl lg:text-4xl font-bold text-center mb-4 text-indigo-500">
             Top <span className="number-of-top">10</span>
           </h2>
         </div>

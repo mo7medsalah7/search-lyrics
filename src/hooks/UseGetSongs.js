@@ -2,8 +2,6 @@ import { useQueryClient, useQuery, queryCache } from "react-query";
 import axios from "axios";
 
 export default function UseGetSongs(anyWord) {
-  const queryClient = useQueryClient();
-
   return useQuery("results", () => {
     return axios
       .get(

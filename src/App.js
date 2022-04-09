@@ -4,10 +4,12 @@ import { useState } from "react";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 import Header from "./components/Header/Header";
-import Hero from "./components/Hero/Hero";
-import TopSongs from "./components/TopSongs/TopSongs";
-import { QueryClient, QueryClientProvider } from "react-query";
 
+import { QueryClient, QueryClientProvider } from "react-query";
+import HomePage from "./pages/Home/index";
+
+import TrackLyrics from "./pages/single/TrackLyrics";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const queryClient = new QueryClient();
 
 function App() {
@@ -15,12 +17,14 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      <Hero />
+      <Router>
+        <Header />
 
-      <TopSongs />
-
-      <ReactQueryDevtools initialIsOpen={false} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/:track_id" exact component={TrackLyrics} />
+        </Switch>
+      </Router>
     </QueryClientProvider>
   );
 }
